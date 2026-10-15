@@ -1,15 +1,15 @@
-<!DOCTAYPE html>
+<!DOCTYPE html>
 <html lang="th" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiphada Sangkhabutr | Student Portfolio</title>
+    <title>Wiphada Sangkhabutr | Student Portfolio 💕</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Prompt & Playfair Display -->
+    <!-- Google Fonts: Prompt & Playfair Display & Itim -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Playfair+Display:ital,wght@0,600;1,400&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -20,6 +20,7 @@
                     fontFamily: {
                         sans: ['Prompt', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
+                        cute: ['Itim', 'cursive'],
                     },
                     colors: {
                         pinky: {
@@ -51,9 +52,12 @@
         body {
             font-family: 'Prompt', sans-serif;
             background-color: #fdfbf7;
+            background-image: radial-gradient(#fecdd3 0.75px, transparent 0.75px), radial-gradient(#fecdd3 0.75px, #fdfbf7 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
@@ -63,130 +67,229 @@
             -webkit-text-fill-color: transparent;
         }
         .soft-shadow {
-            box-shadow: 0 10px 30px -10px rgba(251, 113, 133, 0.15);
+            box-shadow: 0 10px 30px -10px rgba(251, 113, 133, 0.25);
+        }
+        .ios-badge {
+            box-shadow: 0 4px 15px rgba(251, 113, 133, 0.15);
+        }
+        /* Custom Keyframe Animations */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(4deg); }
+        }
+        @keyframes bounceCute {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        @keyframes popHeart {
+            0% { transform: scale(0) rotate(-10deg); opacity: 0; }
+            50% { transform: scale(1.2) rotate(10deg); opacity: 1; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        .animate-float {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: floatSlow 5s ease-in-out 1.5s infinite;
+        }
+        .animate-cute-bounce {
+            animation: bounceCute 2s ease-in-out infinite;
+        }
+        /* Heart Sparkle Effect */
+        .click-heart {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            font-size: 20px;
+            animation: floatUpFade 1s forwards ease-out;
+        }
+        @keyframes floatUpFade {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(0.6); }
+            100% { opacity: 0; transform: translate(-50%, -80px) scale(1.4) rotate(15deg); }
         }
     </style>
 </head>
-<body class="text-slate-700 antialiased selection:bg-pinky-200 selection:text-pinky-800">
+<body class="text-slate-700 antialiased selection:bg-pinky-200 selection:text-pinky-800 relative">
 
+    <!-- Sticky Top Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-pinky-100/80 transition-all duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0">
-                    <a href="#home" class="text-xl font-bold tracking-wide text-slate-800 hover:text-pinky-500 transition-colors">
-                        WIPHADA<span class="text-pinky-500">.</span>
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <a href="#home" class="text-xl font-bold tracking-wide text-slate-800 hover:text-pinky-500 transition-colors flex items-center gap-1.5">
+                        <span class="text-2xl animate-cute-bounce">🎀</span> WIPHADA<span class="text-pinky-500">.</span>
                     </a>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-6 text-sm font-medium">
-                        <a href="#about" class="text-slate-600 hover:text-pinky-600 transition-colors">ประวัติส่วนตัว</a>
-                        <a href="#academic" class="text-slate-600 hover:text-pinky-600 transition-colors">วิชาการ</a>
-                        <a href="#leadership" class="text-slate-600 hover:text-pinky-600 transition-colors">ผู้นำ & สภานักเรียน</a>
-                        <a href="#volunteer" class="text-slate-600 hover:text-pinky-600 transition-colors">จิตอาสา & สุขภาพ</a>
-                        <a href="#contact" class="bg-pinky-500 hover:bg-pinky-600 text-white px-5 py-2 rounded-full shadow-sm transition-all duration-200 hover:shadow-md">ติดต่อ</a>
+                        <a href="#about" class="text-slate-600 hover:text-pinky-600 transition-colors flex items-center gap-1">✨ ประวัติส่วนตัว</a>
+                        <a href="#academic" class="text-slate-600 hover:text-pinky-600 transition-colors flex items-center gap-1">🎓 วิชาการ</a>
+                        <a href="#leadership" class="text-slate-600 hover:text-pinky-600 transition-colors flex items-center gap-1">👑 ผู้นำ & สภาฯ</a>
+                        <a href="#volunteer" class="text-slate-600 hover:text-pinky-600 transition-colors flex items-center gap-1">🩺 จิตอาสา & สุขภาพ</a>
+                        <a href="#contact" class="bg-pinky-500 hover:bg-pinky-600 text-white px-5 py-2 rounded-full shadow-sm transition-all duration-200 hover:shadow-md flex items-center gap-1.5">
+                            💌 ติดต่อ
+                        </a>
                     </div>
                 </div>
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
                     <button id="mobile-menu-btn" class="text-slate-600 hover:text-pinky-600 focus:outline-none p-2">
-                        <i class="fa-solid fa-bars text-xl"></i>
+                        <i class="fa-solid fa-bars-staggered text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- Mobile Menu Nav -->
         <div id="mobile-menu" class="hidden md:hidden bg-white/95 border-b border-pinky-100 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
-            <a href="#about" class="block text-slate-600 hover:text-pinky-600 py-2">ประวัติส่วนตัว</a>
-            <a href="#academic" class="block text-slate-600 hover:text-pinky-600 py-2">วิชาการ</a>
-            <a href="#leadership" class="block text-slate-600 hover:text-pinky-600 py-2">ผู้นำ & สภานักเรียน</a>
-            <a href="#volunteer" class="block text-slate-600 hover:text-pinky-600 py-2">จิตอาสา & สุขภาพ</a>
-            <a href="#contact" class="block bg-pinky-500 text-white px-4 py-2 rounded-xl text-center font-medium">ติดต่อ</a>
+            <a href="#about" class="block text-slate-600 hover:text-pinky-600 py-2">✨ ประวัติส่วนตัว</a>
+            <a href="#academic" class="block text-slate-600 hover:text-pinky-600 py-2">🎓 วิชาการ</a>
+            <a href="#leadership" class="block text-slate-600 hover:text-pinky-600 py-2">👑 ผู้นำ & สภานักเรียน</a>
+            <a href="#volunteer" class="block text-slate-600 hover:text-pinky-600 py-2">🩺 จิตอาสา & สุขภาพ</a>
+            <a href="#contact" class="block bg-pinky-500 text-white px-4 py-2 rounded-xl text-center font-medium">💌 ติดต่อ</a>
         </div>
     </nav>
 
-    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="home" class="pt-32 pb-16 md:pt-40 md:pb-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <!-- Floating Cute iOS Stickers -->
+        <div class="absolute top-20 left-4 text-3xl animate-float opacity-90 pointer-events-none select-none">🌸</div>
+        <div class="absolute bottom-12 left-1/3 text-2xl animate-float-delayed opacity-90 pointer-events-none select-none">🎀</div>
+        <div class="absolute top-28 right-10 text-3xl animate-float opacity-90 pointer-events-none select-none">🍓</div>
+        <div class="absolute bottom-20 right-1/4 text-2xl animate-float-delayed opacity-90 pointer-events-none select-none">🧸</div>
+
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            <div class="md:col-span-7 space-y-6 text-center md:text-left">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pinky-50 border border-pinky-200 text-pinky-700 text-xs sm:text-sm font-medium">
-                    <span class="w-2 h-2 rounded-full bg-pinky-500 animate-pulse"></span>
-                    นักศึกษาวิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น
+            <div class="md:col-span-7 space-y-6 text-center md:text-left z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pinky-100/90 border border-pinky-200 text-pinky-800 text-xs sm:text-sm font-medium ios-badge">
+                    <span class="text-base">👩‍⚕️</span>
+                    <span>นักศึกษาวิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น</span>
+                    <span class="w-2 h-2 rounded-full bg-pinky-500 animate-ping"></span>
                 </div>
+                
                 <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 leading-tight">
                     สวัสดีค่ะ, ดิฉัน <br>
                     <span class="pink-gradient-text">นางสาววิภาดา สังฆะบุตร</span>
+                    <span class="inline-block animate-cute-bounce">🌷</span>
                 </h1>
-                <p class="text-pinky-600 text-lg font-medium tracking-wide">
-                    "สายป่าน" • Public Health Student
+
+                <p class="text-pinky-600 text-lg font-medium tracking-wide flex items-center justify-center md:justify-start gap-2">
+                    <span class="px-3 py-0.5 rounded-full bg-pinky-100 text-pinky-700 text-sm font-bold font-cute border border-pinky-200">"สายป่าน" 🩰</span>
+                    <span>• Public Health Student</span>
                 </p>
-                <div class="p-4 rounded-2xl bg-white/70 border border-pinky-100 shadow-sm max-w-xl">
-                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed italic">
+
+                <!-- Quote Box iOS Widget Style -->
+                <div class="p-4 rounded-2xl bg-white/90 border border-pinky-200 shadow-sm max-w-xl relative group backdrop-blur-md">
+                    <div class="absolute -top-3 -right-2 text-xl animate-bounce">💖</div>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed italic font-cute">
                         <i class="fa-solid fa-quote-left text-pinky-300 mr-2"></i>
-                        ลองทำมันก่อน จะดีหรือแย่ มันก็คือประสบการณ์
+                        ลองทำมันก่อน จะดีหรือแย่ มันก็คือประสบการณ์ 
                         <i class="fa-solid fa-quote-right text-pinky-300 ml-2"></i>
                     </p>
                 </div>
-                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
-                    <a href="#contact" class="px-6 py-3 rounded-full bg-pinky-500 hover:bg-pinky-600 text-white text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md flex items-center gap-2">
-                        <i class="fa-regular fa-paper-plane"></i> ติดต่อดิฉัน
+
+                <!-- Call to Action Buttons -->
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
+                    <a href="#contact" class="px-6 py-3 rounded-full bg-pinky-500 hover:bg-pinky-600 text-white text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <i class="fa-regular fa-paper-plane"></i> ติดต่อสายป่าน 💌
                     </a>
-                    <a href="#academic" class="px-6 py-3 rounded-full bg-white border border-pinky-200 text-slate-700 text-sm font-medium hover:border-pinky-400 hover:text-pinky-600 transition-all duration-200 shadow-sm">
-                        ดูผลงานและกิจกรรม
-                    </a>
+                    <button onclick="openCutePopup('ยินดีต้อนรับสู่ Portfolio! 🌷', 'ขอบคุณที่แวะเข้ามาชมผลงานของสายป่านนะคะ สามารถคลิกดูผลงาน เกียรติบัตร และทักษะด้านสาธารณสุขเพิ่มเติมด้านล่างได้เลยค่ะ 💕<br><br><b>💡 Tip:</b> ลองคลิกตรงไหนบนหน้าจอก็ได้ จะมีหัวใจน่ารักๆ ลอยขึ้นมาด้วยน้า~ ✨')" class="px-6 py-3 rounded-full bg-white border border-pinky-200 text-pinky-600 text-sm font-medium hover:bg-pinky-50 hover:border-pinky-300 transition-all duration-200 shadow-xs flex items-center gap-2">
+                        <span>👋 ทักทายสายป่าน</span>
+                    </button>
                 </div>
             </div>
             
-            <div class="md:col-span-5 flex justify-center">
-                <div class="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden soft-shadow border-4 border-white bg-pinky-100/50">
-                    <img src="https://raw.githubusercontent.com/wiphadasangkhabutr-stack/Saiparn_n/main/S__15835139.jpg" 
-                         alt="วิภาดา สังฆะบุตร (สายป่าน)" 
-                         onerror="this.onerror=null; this.src='https://placehold.co/600x600/fecdd3/881337?text=Wiphada+S.';" 
-                         class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-pinky-900/30 via-transparent to-transparent pointer-events-none"></div>
-                    <div class="absolute bottom-4 left-4 right-4 text-slate-800 p-3 glass-card rounded-2xl border border-white/60 text-xs shadow-sm">
-                        <p class="font-bold text-slate-800">วิภาดา สังฆะบุตร (สายป่าน)</p>
-                        <p class="text-slate-500 text-[11px]">วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น</p>
+            <!-- Profile Image Container with Cute Badges -->
+            <div class="md:col-span-5 flex justify-center z-10">
+                <div class="relative">
+                    <!-- Cute Badge Decor iOS Style -->
+                    <div class="absolute -top-4 -left-4 z-20 bg-white/90 backdrop-blur-md border border-pinky-200 px-3.5 py-1.5 rounded-2xl text-xs font-bold text-pinky-600 ios-badge animate-float">
+                        🩺 สาธารณสุขศาสตร์ ✨
+                    </div>
+                    <div class="absolute -bottom-3 -right-3 z-20 bg-pinky-500 text-white px-3.5 py-1.5 rounded-2xl text-xs font-bold shadow-md flex items-center gap-1 animate-cute-bounce">
+                        <span>🎀</span> สภานักเรียน 2568
+                    </div>
+
+                    <div class="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden soft-shadow border-4 border-white bg-pinky-100/50 group">
+                        <img src="https://raw.githubusercontent.com/wiphadasangkhabutr-stack/Saiparn_n/main/S__15835139.jpg" 
+                             alt="วิภาดา สังฆะบุตร (สายป่าน)" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x600/fecdd3/881337?text=Wiphada+S.';" 
+                             class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pinky-900/30 via-transparent to-transparent pointer-events-none"></div>
+                        <div class="absolute bottom-3 left-3 right-3 text-slate-800 p-2.5 glass-card rounded-2xl border border-white/80 text-xs shadow-xs">
+                            <p class="font-bold text-slate-800 flex items-center justify-between">
+                                <span>วิภาดา สังฆะบุตร (สายป่าน)</span>
+                                <span class="text-pinky-500">🌷</span>
+                            </p>
+                            <p class="text-slate-500 text-[11px]">วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น</p>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats Counter Strip (iOS Widget Style) -->
+        <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <div class="p-4 rounded-2xl bg-white/90 border border-pinky-100 shadow-xs text-center hover:border-pinky-300 transition-all hover:-translate-y-1">
+                <span class="text-2xl">🥇</span>
+                <p class="text-xl font-bold text-pinky-600 mt-1">เหรียญทอง</p>
+                <p class="text-xs text-slate-500">Science Show ศิลปหัตถกรรม</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-white/90 border border-pinky-100 shadow-xs text-center hover:border-pinky-300 transition-all hover:-translate-y-1">
+                <span class="text-2xl">👑</span>
+                <p class="text-xl font-bold text-pinky-600 mt-1">หัวหน้าฝ่าย</p>
+                <p class="text-xs text-slate-500">การเงินและพัสดุ สภานักเรียน</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-white/90 border border-pinky-100 shadow-xs text-center hover:border-pinky-300 transition-all hover:-translate-y-1">
+                <span class="text-2xl">🏥</span>
+                <p class="text-xl font-bold text-pinky-600 mt-1">รพ.สต.</p>
+                <p class="text-xs text-slate-500">ฝึกประสบการณ์ รพ.สต.บ้านหนองหลัก</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-white/90 border border-pinky-100 shadow-xs text-center hover:border-pinky-300 transition-all hover:-translate-y-1">
+                <span class="text-2xl">⭐</span>
+                <p class="text-xl font-bold text-pinky-600 mt-1">ระดับประเทศ</p>
+                <p class="text-xs text-slate-500">ตัวแทน TO BE NUMBER ONE</p>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-16 bg-white/80 border-y border-pinky-100">
+    <section id="about" class="py-16 bg-white/80 border-y border-pinky-100 relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-pinky-500 text-xs font-semibold tracking-widest uppercase">About Me</span>
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 mt-1">ประวัติส่วนตัว & ทักษะ</h2>
-                <div class="w-12 h-1 bg-pinky-300 mx-auto mt-3 rounded-full"></div>
+                <span class="px-3 py-1 rounded-full bg-pinky-100 text-pinky-700 text-xs font-bold tracking-widest uppercase inline-block mb-2">✨ About Me ✨</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-800">ประวัติส่วนตัว & ทักษะรอบด้าน</h2>
+                <div class="w-16 h-1 bg-pinky-300 mx-auto mt-3 rounded-full"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Card 1: Profile Info -->
-                <div class="p-6 rounded-3xl bg-pinky-50/50 border border-pinky-100 shadow-xs hover:border-pinky-200 transition-all space-y-4">
-                    <div class="w-10 h-10 rounded-2xl bg-pinky-100 text-pinky-600 flex items-center justify-center text-lg">
-                        <i class="fa-regular fa-id-card"></i>
+                <div class="p-6 rounded-3xl bg-pinky-50/40 border border-pinky-100 shadow-xs hover:border-pinky-300 transition-all space-y-4 hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-2xl bg-pinky-100 text-pinky-600 flex items-center justify-center text-xl shadow-xs">
+                        🆔
                     </div>
-                    <h3 class="text-lg font-bold text-slate-800">ข้อมูลส่วนตัว</h3>
+                    <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                        ข้อมูลส่วนตัว <span class="text-xs font-normal text-pinky-500">🎀</span>
+                    </h3>
                     <ul class="space-y-2.5 text-sm text-slate-600">
-                        <li><strong class="text-slate-800">ชื่อ-สกุล:</strong> นางสาววิภาดา สังฆะบุตร</li>
-                        <li><strong class="text-slate-800">ชื่อเล่น:</strong> สายป่าน</li>
-                        <li><strong class="text-slate-800">นิสัย:</strong> ร่าเริง เข้ากับคนง่าย ละเอียดรอบคอบ</li>
-                        <li><strong class="text-slate-800">งานอดิเรก:</strong> อ่านหนังสือ, ดูอนิเมะ</li>
-                        <li><strong class="text-slate-800">ที่อยู่:</strong> 148 ม.12 ต.เหล่าบก อ.ม่วงสามสิบ จ.อุบลราชธานี 34140</li>
+                        <li class="flex items-start gap-1.5"><span class="text-pinky-400">🌷</span> <div><strong class="text-slate-800">ชื่อ-สกุล:</strong> นางสาววิภาดา สังฆะบุตร</div></li>
+                        <li class="flex items-start gap-1.5"><span class="text-pinky-400">🍒</span> <div><strong class="text-slate-800">ชื่อเล่น:</strong> สายป่าน</div></li>
+                        <li class="flex items-start gap-1.5"><span class="text-pinky-400">😊</span> <div><strong class="text-slate-800">นิสัย:</strong> ร่าเริง เข้ากับคนง่าย ละเอียดรอบคอบ</div></li>
+                        <li class="flex items-start gap-1.5"><span class="text-pinky-400">📚</span> <div><strong class="text-slate-800">งานอดิเรก:</strong> อ่านหนังสือ, ดูอนิเมะ</div></li>
+                        <li class="flex items-start gap-1.5"><span class="text-pinky-400">📍</span> <div><strong class="text-slate-800">ที่อยู่:</strong> 148 ม.12 ต.เหล่าบก อ.ม่วงสามสิบ จ.อุบลราชธานี 34140</div></li>
                     </ul>
                 </div>
 
                 <!-- Card 2: Education -->
-                <div class="p-6 rounded-3xl bg-pinky-50/50 border border-pinky-100 shadow-xs hover:border-pinky-200 transition-all space-y-4">
-                    <div class="w-10 h-10 rounded-2xl bg-pinky-100 text-pinky-600 flex items-center justify-center text-lg">
-                        <i class="fa-solid fa-graduation-cap"></i>
+                <div class="p-6 rounded-3xl bg-pinky-50/40 border border-pinky-100 shadow-xs hover:border-pinky-300 transition-all space-y-4 hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-2xl bg-pinky-100 text-pinky-600 flex items-center justify-center text-xl shadow-xs">
+                        🎓
                     </div>
-                    <h3 class="text-lg font-bold text-slate-800">ประวัติการศึกษา</h3>
-                    <ul class="space-y-3 text-sm text-slate-600">
-                        <li class="relative pl-4 border-l-2 border-pinky-400">
-                            <span class="block font-semibold text-slate-800">ปัจจุบัน</span>
-                            วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น
+                    <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                        ประวัติการศึกษา <span class="text-xs font-normal text-pinky-500">📖</span>
+                    </h3>
+                    <ul class="space-y-3.5 text-sm text-slate-600">
+                        <li class="relative pl-4 border-l-2 border-pinky-500">
+                            <span class="block font-bold text-pinky-600 text-xs">ปัจจุบัน</span>
+                            <span class="block font-semibold text-slate-800">วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น</span>
                         </li>
-                        <li class="relative pl-4 border-l-2 border-pinky-200">
+                        <li class="relative pl-4 border-l-2 border-pinky-300">
                             <span class="block font-semibold text-slate-800">มัธยมศึกษาตอนปลาย</span>
                             โรงเรียนม่วงสามสิบอัมพวันวิทยา
                         </li>
@@ -198,20 +301,22 @@
                 </div>
 
                 <!-- Card 3: Skills -->
-                <div class="p-6 rounded-3xl bg-pinky-50/50 border border-pinky-100 shadow-xs hover:border-pinky-200 transition-all space-y-4">
-                    <div class="w-10 h-10 rounded-2xl bg-pinky-100 text-pinky-600 flex items-center justify-center text-lg">
-                        <i class="fa-solid fa-heart-pulse"></i>
+                <div class="p-6 rounded-3xl bg-pinky-50/40 border border-pinky-100 shadow-xs hover:border-pinky-300 transition-all space-y-4 hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-2xl bg-pinky-100 text-pinky-600 flex items-center justify-center text-xl shadow-xs">
+                        ⭐
                     </div>
-                    <h3 class="text-lg font-bold text-slate-800">ทักษะ & ความสามารถ</h3>
+                    <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                        ทักษะ & ความสามารถ <span class="text-xs font-normal text-pinky-500">🎨</span>
+                    </h3>
                     <div class="flex flex-wrap gap-2 pt-1">
-                        <span class="px-3 py-1 bg-white border border-pinky-200 text-slate-700 text-xs rounded-full font-medium shadow-2xs">การปฐมพยาบาล & CPR</span>
-                        <span class="px-3 py-1 bg-white border border-pinky-200 text-slate-700 text-xs rounded-full font-medium shadow-2xs">การดูแลผู้สูงอายุ</span>
-                        <span class="px-3 py-1 bg-white border border-pinky-200 text-slate-700 text-xs rounded-full font-medium shadow-2xs">งานการเงินและพัสดุ</span>
-                        <span class="px-3 py-1 bg-white border border-pinky-200 text-slate-700 text-xs rounded-full font-medium shadow-2xs">เครื่องมือวิทยาศาสตร์</span>
-                        <span class="px-3 py-1 bg-white border border-pinky-200 text-slate-700 text-xs rounded-full font-medium shadow-2xs">การทำงานเป็นทีม</span>
-                        <span class="px-3 py-1 bg-white border border-pinky-200 text-slate-700 text-xs rounded-full font-medium shadow-2xs">CANVA</span>
-                        <span class="px-3 py-1 bg-white border border-pinky-200 text-slate-700 text-xs rounded-full font-medium shadow-2xs">เต้น</span>
-                        <span class="px-3 py-1 bg-white border border-pinky-200 text-slate-700 text-xs rounded-full font-medium shadow-2xs">วาดภาพ</span>
+                        <span class="px-3 py-1 bg-white border border-pinky-200 text-slate-700 text-xs rounded-full font-medium shadow-2xs hover:bg-pinky-100 transition-colors cursor-default">🏥 การปฐมพยาบาล & CPR</span>
+                        <span class="px-3 py-1 bg-white border border-pinky-200 text-slate-700 text-xs rounded-full font-medium shadow-2xs hover:bg-pinky-100 transition-colors cursor-default">👵 การดูแลผู้สูงอายุ</span>
+                        <span class="px-3 py-1 bg-white border border-pinky-200 text-slate-700 text-xs rounded-full font-medium shadow-2xs hover:bg-pinky-100 transition-colors cursor-default">💰 งานการเงินและพัสดุ</span>
+                        <span class="px-3 py-1 bg-white border border-pinky-200 text-slate-700 text-xs rounded-full font-medium shadow-2xs hover:bg-pinky-100 transition-colors cursor-default">🔬 เครื่องมือวิทยาศาสตร์</span>
+                        <span class="px-3 py-1 bg-white border border-pinky-200 text-slate-700 text-xs rounded-full font-medium shadow-2xs hover:bg-pinky-100 transition-colors cursor-default">🤝 การทำงานเป็นทีม</span>
+                        <span class="px-3 py-1 bg-white border border-pinky-200 text-slate-700 text-xs rounded-full font-medium shadow-2xs hover:bg-pinky-100 transition-colors cursor-default">🎨 Canva</span>
+                        <span class="px-3 py-1 bg-white border border-pinky-200 text-slate-700 text-xs rounded-full font-medium shadow-2xs hover:bg-pinky-100 transition-colors cursor-default">💃 การเต้น</span>
+                        <span class="px-3 py-1 bg-white border border-pinky-200 text-slate-700 text-xs rounded-full font-medium shadow-2xs hover:bg-pinky-100 transition-colors cursor-default">✏️ การวาดภาพ</span>
                     </div>
                 </div>
             </div>
@@ -220,74 +325,98 @@
 
     <section id="academic" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12">
-            <span class="text-pinky-500 text-xs font-semibold tracking-widest uppercase">Academic Excellence</span>
-            <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 mt-1">กิจกรรมด้านวิชาการ</h2>
-            <div class="w-12 h-1 bg-pinky-300 mx-auto mt-3 rounded-full"></div>
+            <span class="px-3 py-1 rounded-full bg-pinky-100 text-pinky-700 text-xs font-bold tracking-widest uppercase inline-block mb-2">🎓 Academic Achievements 🎓</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-800">กิจกรรมและผลงานด้านวิชาการ</h2>
+            <div class="w-16 h-1 bg-pinky-300 mx-auto mt-3 rounded-full"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Academic Item 1 -->
-            <div class="bg-white rounded-3xl border border-pinky-100 p-6 sm:p-8 shadow-xs hover:border-pinky-300 transition-all flex flex-col justify-between">
-                <div class="space-y-3">
+            <div class="bg-white rounded-3xl border border-pinky-100 p-6 sm:p-8 shadow-xs hover:border-pinky-300 transition-all flex flex-col justify-between hover:shadow-md relative overflow-hidden group cursor-pointer"
+                 onclick="openCutePopup('🏆 การแข่งขัน Science Show', '<b>รายละเอียดเกียรติบัตร:</b><br>ได้รับรางวัลระดับเหรียญทอง ระดับชั้น ม.4-ม.6 ในงานศิลปหัตถกรรมนักเรียน ครั้งที่ 71 ประจำปีการศึกษา 2566<br><br><b>ประสบการณ์และสิ่งที่ได้รับ:</b><br>- วางแผน ทดลอง และอธิบายหลักการทางวิทยาศาสตร์<br>- แก้ปัญหาเฉพาะหน้าระหว่างการแสดงเมื่อผลไม่เป็นไปตามแผน<br>- ฝึกการทำงานร่วมกับผู้อื่น และสื่อสารความรู้ให้ผู้ฟังเข้าใจง่าย ✨')">
+                <div class="absolute -top-6 -right-6 w-20 h-20 bg-amber-100/50 rounded-full group-hover:scale-125 transition-transform duration-500"></div>
+                <div class="space-y-3 relative z-10">
                     <div class="flex items-center justify-between">
-                        <span class="px-3 py-1 bg-amber-50 text-amber-700 border border-amber-200 text-xs font-semibold rounded-full">
-                            <i class="fa-solid fa-trophy mr-1 text-amber-500"></i> รางวัลเหรียญทอง
+                        <span class="px-3 py-1 bg-amber-50 text-amber-700 border border-amber-200 text-xs font-bold rounded-full flex items-center gap-1">
+                            🏆 รางวัลเหรียญทอง
                         </span>
-                        <span class="text-xs text-slate-400">ปีการศึกษา 2566</span>
+                        <span class="text-xs text-slate-400 font-medium">ปีการศึกษา 2566</span>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-800">การแข่งขันการแสดงทางวิทยาศาสตร์ (Science Show)</h3>
+                    <h3 class="text-lg font-bold text-slate-800 flex items-center gap-1.5">
+                        การแข่งขันการแสดงทางวิทยาศาสตร์ (Science Show) 🧪
+                    </h3>
                     <p class="text-xs text-pinky-600 font-medium">ระดับชั้น ม.4-ม.6 • งานศิลปหัตถกรรมนักเรียน ครั้งที่ 71</p>
                     <p class="text-sm text-slate-600 leading-relaxed pt-2">
-                        เตรียมตัวตั้งแต่การวางแผน ทดลอง และอธิบายหลักการทางวิทยาศาสตร์ ระหว่างการแสดงเกิดปัญหาการทดลองไม่เป็นไปตามแผน จึงต้องแก้ปัญหาเฉพาะหน้า เพื่อให้การแสดงดำเนินต่อไปได้ ทำให้ได้ฝึกคิดแก้ปัญหา การทำงานร่วมกับผู้อื่น และถ่ายทอดความรู้ให้ผู้ฟังเข้าใจง่าย
+                        เตรียมตัวตั้งแต่การวางแผน ทดลอง และอธิบายหลักการทางวิทยาศาสตร์ ระหว่างการแสดงเกิดปัญหาการทดลองไม่เป็นไปตามแผน จึงต้องแก้ปัญหาเฉพาะหน้า เพื่อให้การแสดงดำเนินต่อไปได้
                     </p>
+                </div>
+                <div class="pt-4 border-t border-pinky-50 mt-4 flex justify-end">
+                    <span class="text-xs font-bold text-pinky-600 hover:text-pinky-800 flex items-center gap-1">
+                        🔍 คลิกดูป๊อปอัพรายละเอียด <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </span>
                 </div>
             </div>
 
             <!-- Academic Item 2 -->
-            <div class="bg-white rounded-3xl border border-pinky-100 p-6 sm:p-8 shadow-xs hover:border-pinky-300 transition-all flex flex-col justify-between">
-                <div class="space-y-3">
+            <div class="bg-white rounded-3xl border border-pinky-100 p-6 sm:p-8 shadow-xs hover:border-pinky-300 transition-all flex flex-col justify-between hover:shadow-md relative overflow-hidden group cursor-pointer"
+                 onclick="openCutePopup('🔬 การแข่งขันทักษะชีววิทยา', '<b>รายละเอียดกิจกรรม:</b><br>เข้าร่วมกิจกรรมแข่งขันทักษะการใช้เครื่องมือวิทยาศาสตร์ (ชีววิทยา) โครงการสัปดาห์วิทยาศาสตร์แห่งชาติ ณ คณะวิทยาศาสตร์ มหาวิทยาลัยอุบลราชธานี<br><br><b>ประสบการณ์และสิ่งที่ได้รับ:</b><br>- ทดลองใช้เครื่องมือปฏิบัติการชีววิทยาจริงระดับมหาวิทยาลัย<br>- ฝึกความละเอียดแม่นยำและการบริหารเวลาอย่างเคร่งครัด<br>- เรียนรู้การทำงานอย่างเป็นขั้นตอนและมีระบบ ✨')">
+                <div class="absolute -top-6 -right-6 w-20 h-20 bg-pinky-100/50 rounded-full group-hover:scale-125 transition-transform duration-500"></div>
+                <div class="space-y-3 relative z-10">
                     <div class="flex items-center justify-between">
-                        <span class="px-3 py-1 bg-pinky-50 text-pinky-700 border border-pinky-200 text-xs font-semibold rounded-full">
-                            <i class="fa-solid fa-flask mr-1 text-pinky-500"></i> เข้าร่วมการแข่งขัน
+                        <span class="px-3 py-1 bg-pinky-50 text-pinky-700 border border-pinky-200 text-xs font-bold rounded-full flex items-center gap-1">
+                            🔬 เข้าร่วมการแข่งขัน
                         </span>
-                        <span class="text-xs text-slate-400">17-18 ส.ค. 2566</span>
+                        <span class="text-xs text-slate-400 font-medium">17-18 ส.ค. 2566</span>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-800">แข่งขันทักษะการใช้เครื่องมือวิทยาศาสตร์ (ชีววิทยา)</h3>
+                    <h3 class="text-lg font-bold text-slate-800 flex items-center gap-1.5">
+                        แข่งขันทักษะการใช้เครื่องมือวิทยาศาสตร์ (ชีววิทยา) 🧫
+                    </h3>
                     <p class="text-xs text-pinky-600 font-medium">โครงการสัปดาห์วิทยาศาสตร์แห่งชาติ • คณะวิทยาศาสตร์ ม.อุบลราชธานี</p>
                     <p class="text-sm text-slate-600 leading-relaxed pt-2">
-                        ได้ทดลองใช้เครื่องมือทางชีววิทยาอย่างจริงจัง ฝึกความละเอียดรอบคอบ และการทำงานภายใต้เวลาจำกัด ช่วยให้เข้าใจขั้นตอนการทดลองอย่างเป็นระบบ และฝึกการแก้ปัญหาเฉพาะหน้าระหว่างปฏิบัติงานจริง
+                        ได้ทดลองใช้เครื่องมือทางชีววิทยาอย่างจริงจัง ฝึกความละเอียดรอบคอบ และการทำงานภายใต้เวลาจำกัด ช่วยให้เข้าใจขั้นตอนการทดลองอย่างเป็นระบบ
                     </p>
+                </div>
+                <div class="pt-4 border-t border-pinky-50 mt-4 flex justify-end">
+                    <span class="text-xs font-bold text-pinky-600 hover:text-pinky-800 flex items-center gap-1">
+                        🔍 คลิกดูป๊อปอัพรายละเอียด <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="leadership" class="py-16 bg-pinky-50/30 border-y border-pinky-100">
+    <section id="leadership" class="py-16 bg-pinky-50/30 border-y border-pinky-100 relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-pinky-500 text-xs font-semibold tracking-widest uppercase">Leadership & Responsibility</span>
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 mt-1">กิจกรรมด้านความเป็นผู้นำ</h2>
-                <div class="w-12 h-1 bg-pinky-300 mx-auto mt-3 rounded-full"></div>
+                <span class="px-3 py-1 rounded-full bg-pinky-100 text-pinky-700 text-xs font-bold tracking-widest uppercase inline-block mb-2">👑 Leadership Roles 👑</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-800">กิจกรรมด้านความเป็นผู้นำ & สภานักเรียน</h2>
+                <div class="w-16 h-1 bg-pinky-300 mx-auto mt-3 rounded-full"></div>
             </div>
 
             <div class="space-y-6">
                 <!-- Leadership Item 1 -->
-                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-pinky-100 shadow-xs grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-pinky-100 shadow-xs grid grid-cols-1 md:grid-cols-12 gap-6 items-center hover:border-pinky-300 transition-all cursor-pointer"
+                     onclick="openCutePopup('💳 หัวหน้าฝ่ายการเงินและพัสดุ สภานักเรียน', '<b>บทบาทหน้าที่ประจำปี 2568:</b><br>ดูแลและบริหารจัดการงานการเงิน พัสดุ และอุปกรณ์ในการจัดกิจกรรมต่างๆ ของโรงเรียนม่วงสามสิบอัมพวันวิทยา<br><br><b>ทักษะที่ได้พัฒนา:</b><br>- ความซื่อสัตย์ สุจริต และความละเอียดรอบคอบเรื่องเอกสารงบประมาณ<br>- การประสานงานกับคณะครูและเพื่อนๆ คณะกรรมการสภานักเรียน<br>- ฝึกการเป็นผู้นำและผู้ตามที่ดี ตระหนักถึงประโยชน์ส่วนรวม 🎀')">
                     <div class="md:col-span-4 space-y-2">
-                        <span class="text-xs font-semibold text-pinky-500 uppercase tracking-wider">ปีการศึกษา 2568</span>
-                        <h3 class="text-xl font-bold text-slate-800">หัวหน้าฝ่ายการเงินและพัสดุ</h3>
+                        <span class="px-2.5 py-1 bg-pinky-100 text-pinky-700 text-xs font-bold rounded-lg inline-block">ปีการศึกษา 2568</span>
+                        <h3 class="text-xl font-bold text-slate-800 flex items-center gap-1.5">
+                            💳 หัวหน้าฝ่ายการเงินและพัสดุ 👑
+                        </h3>
                         <p class="text-sm text-slate-500 font-medium">คณะกรรมการสภานักเรียน โรงเรียนม่วงสามสิบอัมพวันวิทยา</p>
                     </div>
                     <div class="md:col-span-8 text-sm text-slate-600 leading-relaxed border-t md:border-t-0 md:border-l border-pinky-100 pt-4 md:pt-0 md:pl-6">
-                        ปฏิบัติหน้าที่จัดกิจกรรมต่างๆ ของโรงเรียน วางแผนงานร่วมกับครูและเพื่อนสภานักเรียน การบริหารงานฝ่ายการเงินและพัสดุช่วยฝึกความรอบคอบ ความซื่อสัตย์ และความรับผิดชอบ เรียนรู้การจัดการเวลา การสื่อสาร และการรับฟังความคิดเห็นที่แตกต่าง เพื่อเป็นทั้งผู้นำและผู้ตามที่ดี
+                        ปฏิบัติหน้าที่จัดกิจกรรมต่างๆ ของโรงเรียน วางแผนงานร่วมกับครูและเพื่อนสภานักเรียน การบริหารงานฝ่ายการเงินและพัสดุช่วยฝึกความรอบคอบ ความซื่อสัตย์ และความรับผิดชอบ เรียนรู้การจัดการเวลา การสื่อสาร และการรับฟังความคิดเห็นที่แตกต่าง
                     </div>
                 </div>
 
                 <!-- Leadership Item 2 -->
-                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-pinky-100 shadow-xs grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-pinky-100 shadow-xs grid grid-cols-1 md:grid-cols-12 gap-6 items-center hover:border-pinky-300 transition-all cursor-pointer"
+                     onclick="openCutePopup('🤝 หัวหน้าฝ่ายพี่เลี้ยง ค่ายยุวกาชาด', '<b>ค่ายพี่น้องสานสัมพันธ์ สร้างสรรค์ยุวกาชาด ครั้งที่ 1:</b><br>รับผิดชอบดูแลน้องๆ ยุวกาชาดให้พร้อมและปลอดภัย ออกแบบกิจกรรมสันทนาการสร้างความสนุกสนาน<br><br><b>สิ่งที่ได้รับ:</b><br>- ทักษะการสร้างแรงบันดาลใจและการละลายพฤติกรรมกลุ่ม<br>- การแก้ไขปัญหาเฉพาะหน้าระหว่างการทำกิจกรรมค่าย<br>- ความใส่ใจและความเอาใจใส่ต่อผู้อื่น 🌸')">
                     <div class="md:col-span-4 space-y-2">
-                        <span class="text-xs font-semibold text-pinky-500 uppercase tracking-wider">22 พฤษภาคม 2568</span>
-                        <h3 class="text-xl font-bold text-slate-800">หัวหน้าฝ่ายพี่เลี้ยง</h3>
+                        <span class="px-2.5 py-1 bg-pinky-100 text-pinky-700 text-xs font-bold rounded-lg inline-block">22 พฤษภาคม 2568</span>
+                        <h3 class="text-xl font-bold text-slate-800 flex items-center gap-1.5">
+                            🤝 หัวหน้าฝ่ายพี่เลี้ยง 🧸
+                        </h3>
                         <p class="text-sm text-slate-500 font-medium">ค่ายพี่น้องสานสัมพันธ์ สร้างสรรค์ยุวกาชาด ครั้งที่ 1</p>
                     </div>
                     <div class="md:col-span-8 text-sm text-slate-600 leading-relaxed border-t md:border-t-0 md:border-l border-pinky-100 pt-4 md:pt-0 md:pl-6">
@@ -300,20 +429,21 @@
 
     <section id="volunteer" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12">
-            <span class="text-pinky-500 text-xs font-semibold tracking-widest uppercase">Volunteer & Public Health Services</span>
-            <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 mt-1">จิตอาสา & ประสบการณ์ด้านสุขภาพ</h2>
-            <div class="w-12 h-1 bg-pinky-300 mx-auto mt-3 rounded-full"></div>
+            <span class="px-3 py-1 rounded-full bg-pinky-100 text-pinky-700 text-xs font-bold tracking-widest uppercase inline-block mb-2">🩺 Volunteer & Health 🩺</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-800">จิตอาสา & ประสบการณ์ด้านสาธารณสุข</h2>
+            <div class="w-16 h-1 bg-pinky-300 mx-auto mt-3 rounded-full"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Volunteer Card 1 -->
-            <div class="bg-white p-6 rounded-3xl border border-pinky-100 shadow-xs hover:border-pinky-300 transition-all flex flex-col justify-between">
+            <div class="bg-white p-6 rounded-3xl border border-pinky-100 shadow-xs hover:border-pinky-300 transition-all flex flex-col justify-between hover:-translate-y-1 cursor-pointer"
+                 onclick="openCutePopup('🏥 การฝึกประสบการณ์ ณ รพ.สต. บ้านหนองหลัก', '<b>ระยะเวลา:</b> 25 มีนาคม - 5 เมษายน 2567<br><br><b>รายละเอียดกิจกรรม:</b><br>- ฝึกปฏิบัติงานจิตอาสาและเรียนรู้ระบบบริการสุขภาพปฐมภูมิ<br>- สังเกตการณ์ทำงานของบุคลากรทางการแพทย์อย่างใกล้ชิด<br>- เข้าใจความสำคัญของระบบสาธารณสุขชุมชน ซึ่งเป็นจุดเริ่มต้นที่ทำให้ตัดสินใจเลือกเรียนด้านสาธารณสุขศาสตร์ 🩺')">
                 <div class="space-y-3">
-                    <div class="w-10 h-10 rounded-2xl bg-pinky-100 text-pinky-600 flex items-center justify-center font-bold">
-                        <i class="fa-solid fa-hospital-user"></i>
+                    <div class="w-10 h-10 rounded-2xl bg-pinky-100 text-pinky-600 flex items-center justify-center font-bold text-lg">
+                        🏥
                     </div>
-                    <span class="text-xs font-semibold text-pinky-600">25 มี.ค. - 5 เม.ย. 2567</span>
-                    <h3 class="text-base font-bold text-slate-800">ฝึกประสบการณ์ ณ รพ.สต. บ้านหนองหลัก</h3>
+                    <span class="text-xs font-bold text-pinky-600 bg-pinky-50 px-2 py-0.5 rounded-md">25 มี.ค. - 5 เม.ย. 2567</span>
+                    <h3 class="text-base font-bold text-slate-800">ฝึกประสบการณ์ ณ รพ.สต. บ้านหนองหลัก ✨</h3>
                     <p class="text-xs text-slate-600 leading-relaxed">
                         ฝึกปฏิบัติงานจิตอาสาและสังเกตการณ์ทำงานของบุคลากรทางการแพทย์ ช่วยให้เข้าใจระบบบริการสุขภาพในระดับชุมชน และเป็นแรงบันดาลใจสำคัญในการศึกษาต่อสายสาธารณสุข
                     </p>
@@ -321,13 +451,14 @@
             </div>
 
             <!-- Volunteer Card 2 -->
-            <div class="bg-white p-6 rounded-3xl border border-pinky-100 shadow-xs hover:border-pinky-300 transition-all flex flex-col justify-between">
+            <div class="bg-white p-6 rounded-3xl border border-pinky-100 shadow-xs hover:border-pinky-300 transition-all flex flex-col justify-between hover:-translate-y-1 cursor-pointer"
+                 onclick="openCutePopup('🫀 การอบรม CPR & การดูแลผู้สูงอายุ', '<b>หลักสูตรการอบรมที่ผ่าน:</b><br>1. การปฐมพยาบาลเบื้องต้น CPR และการช่วยเหลือภาวะอาหารติดคอ (Choking)<br>2. อบรมอาสายุวกาชาดเรื่องการดูแลผู้สูงอายุ (รุ่นที่ 658)<br>3. โครงการ Gen-H อาสาสร้างเสริมสุขภาพ<br><br><b>ประโยชน์:</b> เพิ่มทักษะการช่วยชีวิตขั้นพื้นฐานและการดูแลสุขภาพเชิงป้องกันในชุมชน 🌸')">
                 <div class="space-y-3">
-                    <div class="w-10 h-10 rounded-2xl bg-pinky-100 text-pinky-600 flex items-center justify-center font-bold">
-                        <i class="fa-solid fa-hand-holding-medical"></i>
+                    <div class="w-10 h-10 rounded-2xl bg-pinky-100 text-pinky-600 flex items-center justify-center font-bold text-lg">
+                        🫀
                     </div>
-                    <span class="text-xs font-semibold text-pinky-600">การอบรม CPR & การดูแลผู้สูงอายุ</span>
-                    <h3 class="text-base font-bold text-slate-800">การปฐมพยาบาลเบื้องต้น & ยุวกาชาด</h3>
+                    <span class="text-xs font-bold text-pinky-600 bg-pinky-50 px-2 py-0.5 rounded-md">การอบรม CPR & ยุวกาชาด</span>
+                    <h3 class="text-base font-bold text-slate-800">การปฐมพยาบาลเบื้องต้น & Caregiver 🩺</h3>
                     <p class="text-xs text-slate-600 leading-relaxed">
                         ผ่านการอบรม CPR, การช่วยเหลือภาวะอาหารติดคอ (Choking), อบรมอาสายุวกาชาดเรื่องการดูแลผู้สูงอายุ (รุ่นที่ 658) และโครงการ Gen-H อาสาสร้างเสริมสุขภาพ
                     </p>
@@ -335,70 +466,97 @@
             </div>
 
             <!-- Volunteer Card 3 -->
-            <div class="bg-white p-6 rounded-3xl border border-pinky-100 shadow-xs hover:border-pinky-300 transition-all flex flex-col justify-between">
+            <div class="bg-white p-6 rounded-3xl border border-pinky-100 shadow-xs hover:border-pinky-300 transition-all flex flex-col justify-between hover:-translate-y-1 cursor-pointer"
+                 onclick="openCutePopup('🎁 จิตอาสาเพื่อส่วนรวม & บริจาคโลหิต', '<b>กิจกรรมจิตอาสาที่เข้าร่วม:</b><br>- ช่วยบรรจุถุงยังชีพ ณ สถานีกาชาดที่ 7 จ.อุบลราชธานี เพื่อช่วยเหลือผู้ประสบภัยชายแดน<br>- อำนวยความสะดวกบริการผู้บริจาคโลหิต<br>- ร่วมดูแลความเรียบร้อยขบวนแห่เทียนพรรษา จ.อุบลราชธานี ปี 2567<br><br><b>หัวใจสำคัญ:</b> ความอดทน ความรอบคอบ และการทำประโยชน์เพื่อสังคม 💖')">
                 <div class="space-y-3">
-                    <div class="w-10 h-10 rounded-2xl bg-pinky-100 text-pinky-600 flex items-center justify-center font-bold">
-                        <i class="fa-solid fa-hands-holding-circle"></i>
+                    <div class="w-10 h-10 rounded-2xl bg-pinky-100 text-pinky-600 flex items-center justify-center font-bold text-lg">
+                        🎁
                     </div>
-                    <span class="text-xs font-semibold text-pinky-600">งานบริการจิตอาสาเพื่อส่วนรวม</span>
-                    <h3 class="text-base font-bold text-slate-800">บรรจุถุงยังชีพ & งานบริจาคโลหิต</h3>
+                    <span class="text-xs font-bold text-pinky-600 bg-pinky-50 px-2 py-0.5 rounded-md">จิตอาสาเพื่อส่วนรวม</span>
+                    <h3 class="text-base font-bold text-slate-800">บรรจุถุงยังชีพ & บริจาคโลหิต 🌸</h3>
                     <p class="text-xs text-slate-600 leading-relaxed">
-                        ช่วยบรรจุถุงยังชีพ ณ สถานีกาชาดที่ 7 เพื่อช่วยเหลือประชาชนพื้นที่ชายแดนไทย-กัมพูชา, จิตอาสาอำนวยความสะดวกผู้บริจาคโลหิต และร่วมดูแลความเรียบร้อยงานแห่เทียนพรรษา จ.อุบลราชธานี ปี 2567
+                        บรรจุถุงยังชีพ ณ สถานีกาชาดที่ 7 ช่วยเหลือชายแดน, บริการอำนวยความสะดวกงานบริจาคโลหิต และร่วมดูแลความเรียบร้อยงานแห่เทียนพรรษา อุบลราชธานี ปี 2567
                     </p>
                 </div>
             </div>
         </div>
 
-        <!-- Extra Highlight Card: TO BE NUMBER ONE -->
-        <div class="mt-8 bg-gradient-to-r from-pinky-600 to-rose-500 rounded-3xl p-6 sm:p-8 text-white shadow-md">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+        <!-- Highlight Card: TO BE NUMBER ONE -->
+        <div class="mt-8 bg-gradient-to-r from-pinky-600 via-rose-500 to-pinky-500 rounded-3xl p-6 sm:p-8 text-white shadow-md relative overflow-hidden cursor-pointer"
+             onclick="openCutePopup('⭐ โครงการ TO BE NUMBER ONE ระดับประเทศ', '<b>สถานที่:</b> อิมแพ็ค ฟอรั่ม เมืองทองธานี (12-15 ก.ค. 2568)<br><br><b>รายละเอียดผลงาน:</b><br>เป็นตัวแทนจังหวัดอุบลราชธานี เข้าร่วมการแสดงนำเสนอผลการดำเนินงานโครงการ TO BE NUMBER ONE ระดับประเทศ<br><br><b>สิ่งที่ได้รับ:</b><br>- ได้รณรงค์และสื่อสารแนวคิดเยาวชนรุ่นใหม่ห่างไกลยาเสพติด<br>- ฝึกทักษะการแสดงและการนำเสนอต่อหน้าสาธารณชนระดับประเทศ<br>- ความภาคภูมิใจและทักษะการทำงานร่วมกันเป็นทีมใหญ่ 🏆')">
+            <div class="absolute -right-10 -bottom-10 text-9xl opacity-10 pointer-events-none">⭐</div>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center relative z-10">
                 <div class="md:col-span-8 space-y-3">
-                    <div class="inline-block px-3.5 py-1 bg-white/20 backdrop-blur-md text-white text-xs rounded-full border border-white/30 font-medium">
-                        <i class="fa-solid fa-star mr-1 text-amber-300"></i> ประกวดระดับประเทศ • 12-15 ก.ค. 2568
+                    <div class="inline-flex items-center gap-1 px-3.5 py-1 bg-white/20 backdrop-blur-md text-white text-xs rounded-full border border-white/30 font-medium">
+                        ⭐ ประกวดระดับประเทศ • 12-15 ก.ค. 2568
                     </div>
-                    <h3 class="text-xl sm:text-2xl font-bold">โครงการ TO BE NUMBER ONE ระดับประเทศ</h3>
+                    <h3 class="text-xl sm:text-2xl font-bold flex items-center gap-2">
+                        โครงการ TO BE NUMBER ONE ระดับประเทศ 🏆
+                    </h3>
                     <p class="text-sm text-pinky-50 leading-relaxed">
-                        เข้าร่วมการแสดงนำเสนอผลการดำเนินงาน โครงการ TO BE NUMBER ONE ระดับประเทศ ณ อิมแพ็ค ฟอรั่ม เมืองทองธานี สื่อสารแนวคิดการใช้ชีวิตอย่างสร้างสรรค์และห่างไกลยาเสพติด ได้ฝึกการทำงานเป็นทีมและการนำเสนอต่อสาธารณชน
+                        เข้าร่วมการแสดงนำเสนอผลการดำเนินงาน โครงการ TO BE NUMBER ONE ระดับประเทศ ณ อิมแพ็ค ฟอรั่ม เมืองทองธานี สื่อสารแนวคิดการใช้ชีวิตอย่างสร้างสรรค์และห่างไกลยาเสพติด
                     </p>
                 </div>
                 <div class="md:col-span-4 flex justify-start md:justify-end">
-                    <div class="px-5 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-center">
-                        <i class="fa-solid fa-award text-3xl text-amber-300 mb-1"></i>
-                        <p class="text-xs text-white font-medium">ตัวแทนจังหวัดอุบลราชธานี</p>
+                    <div class="px-5 py-4 rounded-2xl bg-white/15 backdrop-blur-md border border-white/30 text-center w-full sm:w-auto">
+                        <span class="text-3xl">🌟</span>
+                        <p class="text-xs text-white font-bold mt-1">ตัวแทนจังหวัดอุบลราชธานี</p>
+                        <p class="text-[10px] text-pinky-100">อิมแพ็ค ฟอรั่ม เมืองทองธานี</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-16 bg-white border-t border-pinky-100">
+    <section id="contact" class="py-16 bg-white border-t border-pinky-100 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
             <div>
-                <span class="text-pinky-500 text-xs font-semibold tracking-widest uppercase">Get In Touch</span>
+                <span class="px-3 py-1 rounded-full bg-pinky-100 text-pinky-700 text-xs font-bold tracking-widest uppercase inline-block mb-2">💌 Get In Touch 💌</span>
                 <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 mt-1">ช่องทางการติดต่อ</h2>
-                <p class="text-slate-500 text-sm mt-2">ยินดีต้อนรับสำหรับการแลกเปลี่ยนเรียนรู้และโอกาสในการพัฒนาตนเองค่ะ</p>
+                <p class="text-slate-500 text-sm mt-2">ยินดีต้อนรับสำหรับการแลกเปลี่ยนเรียนรู้และโอกาสในการพัฒนาตนเองค่ะ 💕</p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
-                <a href="mailto:wiphadasangkhabutr@gmail.com" class="p-4 rounded-2xl bg-pinky-50/50 border border-pinky-100 hover:border-pinky-300 transition-all flex items-center justify-center gap-3 text-slate-700 font-medium text-sm group">
-                    <i class="fa-regular fa-envelope text-lg text-pinky-500 group-hover:scale-110 transition-transform"></i>
+                <a href="mailto:wiphadasangkhabutr@gmail.com" class="p-4 rounded-2xl bg-pinky-50/60 border border-pinky-100 hover:border-pinky-300 transition-all flex items-center justify-center gap-3 text-slate-700 font-medium text-sm group shadow-2xs hover:shadow-xs">
+                    <span class="text-xl group-hover:scale-125 transition-transform">✉️</span>
                     <span class="truncate">wiphadasangkhabutr@gmail.com</span>
                 </a>
-                <div class="p-4 rounded-2xl bg-pinky-50/50 border border-pinky-100 flex items-center justify-center gap-3 text-slate-700 font-medium text-sm">
-                    <i class="fa-brands fa-instagram text-lg text-pinky-500"></i>
-                    <span>wipxdx_e</span>
+                <div class="p-4 rounded-2xl bg-pinky-50/60 border border-pinky-100 flex items-center justify-center gap-3 text-slate-700 font-medium text-sm shadow-2xs">
+                    <span class="text-xl">📷</span>
+                    <span>Instagram: <strong>wipxdx_e</strong></span>
                 </div>
             </div>
 
+            <!-- Heart Click Interactive Tip -->
+            <p class="text-xs text-pinky-400 font-cute italic">
+                💡 ลองคลิกที่หน้าจอตรงไหนก็ได้ จะมีหัวใจน่ารักๆ ลอยขึ้นมาด้วยนะคะ~ ✨
+            </p>
+
             <div class="pt-8 border-t border-slate-100 text-xs text-slate-400 space-y-1">
-                <p>© 2026 Wiphada Sangkhabutr. All rights reserved.</p>
-                <p>Designed for GitHub Pages with Tailwind CSS & Minimal Pink Style</p>
+                <p>© 2026 Wiphada Sangkhabutr. All rights reserved. 💕</p>
+                <p>Designed for GitHub Pages with Tailwind CSS & Minimal Cute Pink iOS Style</p>
             </div>
         </div>
     </section>
 
+    <!-- Interactive Cute iOS Style Popup Modal -->
+    <div id="cute-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-xs hidden transition-opacity duration-300 opacity-0 px-4">
+        <div class="bg-white/95 backdrop-blur-md rounded-3xl border-2 border-pinky-200 p-6 sm:p-8 max-w-md w-full shadow-2xl relative transform scale-90 transition-transform duration-300 text-center space-y-4" id="modal-content">
+            <!-- Modal Close Icon -->
+            <button onclick="closeCutePopup()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-pinky-100 text-pinky-600 hover:bg-pinky-200 flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="text-4xl animate-cute-bounce">💖</div>
+            <h3 id="modal-title" class="text-xl font-bold text-slate-800"></h3>
+            <div id="modal-body" class="text-sm text-slate-600 leading-relaxed text-left bg-pinky-50/70 p-4 rounded-2xl border border-pinky-100 font-sans"></div>
+            <button onclick="closeCutePopup()" class="w-full py-2.5 bg-pinky-500 hover:bg-pinky-600 text-white font-medium text-sm rounded-full shadow-xs transition-colors">
+                ตกลงค่ะ 🌸
+            </button>
+        </div>
+    </div>
+
     <script>
-        // Mobile menu toggle
+        // Mobile Navigation Toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -406,11 +564,59 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Close mobile menu on click link
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
+        });
+
+        // Cute Popup Modal Logic (iOS Style)
+        const modal = document.getElementById('cute-modal');
+        const modalContent = document.getElementById('modal-content');
+
+        function openCutePopup(title, htmlContent) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-body').innerHTML = htmlContent;
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-90');
+                modalContent.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeCutePopup() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-90');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Close Modal when clicking outside
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeCutePopup();
+            }
+        });
+
+        // Heart Click Sparkle Effect Anywhere on Screen
+        const hearts = ['💖', '🌸', '✨', '🎀', '🌷', '⭐', '🍓', '🧸'];
+        document.addEventListener('click', function(e) {
+            // Don't trigger if clicked on clickable buttons to avoid conflict
+            if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
+
+            const heart = document.createElement('div');
+            heart.className = 'click-heart';
+            heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = e.clientX + 'px';
+            heart.style.top = e.clientY + 'px';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 1000);
         });
     </script>
 </body>
